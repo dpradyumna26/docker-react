@@ -1,0 +1,9 @@
+sudo: require
+services:
+  - docker
+
+before_install:
+  - docker build -t pdeshpan/docker-react-dev -f Dockerfile.dev .
+
+script:
+  - docker run pdeshpan/docker-react-dev npm run test -- --coverage
